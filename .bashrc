@@ -87,10 +87,14 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+# alias commands
+alias list="ls"
+alias l-dir="ls -d*/"
+alias l-long="ls -l"
+alias l-all="ls -la"
+alias whereami="pwd"
+alias toast="bun ts -standard ./*.ts"
+alias bread="bun ts -standard --fix"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -111,3 +115,30 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+# Commit Changes To GitHub Program
+# To use it, type cc2gh inside your repository clone 
+# and then your commit message in double quotes
+# Ex. cc2gh "Commiting code to GH"
+cc2gh() {
+    local commit_message="$1" # Get commit message before starting
+
+    # Check if user left message empty handed
+    if [ -z "$commit_message" ]; then
+	  echo "Oops! You forgot to enter your commit message!"
+	  read -p "Please enter your commit message: " commit_message
+    fi
+
+    # add all changes
+    git add -A
+
+    # Commit with provided message
+    git commit -m "$commit_message"
+
+    # Push to a branch from GitHub (default is "main", can be adjusted)
+    git push origin main
+
+    # Tell the user a green "Done!" when finished
+    echo -e "\n \033[32mDone!\033[0m"
+}

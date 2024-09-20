@@ -27,6 +27,7 @@ sudo rm -r ./temp
 # install programming languages, bun and Java
 sudo apt install -y default-jdk
 curl -fsSL https://bun.sh/install | bash
+source ~/.bashrc
 
 # reboot system
 sudo reboot now

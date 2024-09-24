@@ -1,3 +1,3 @@
 # .dotfiles
 
-Contains all of the dotfiles nessisary to configure a Linux Debian machine!
+Contains all of the dotfiles nessesary to configure on a Linux Debian machine!

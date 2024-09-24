@@ -93,8 +93,8 @@ alias l-dir="ls -d*/"
 alias l-long="ls -l"
 alias l-all="ls -la"
 alias whereami="pwd"
-alias toast="bun ts -standard ./*.ts"
-alias bread="bun ts -standard --fix"
+alias toast="bun ts-standard ./*.ts"
+alias bread="bun ts-standard --fix"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -116,6 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PS1="[\u / \W] §:"
 
 # Commit Changes To GitHub Program
 # To use it, type cc2gh inside your repository clone 

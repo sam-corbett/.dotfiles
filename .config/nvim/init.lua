@@ -1,7 +1,4 @@
 -- luacheck: ignore vim
-require("config.lazy")
-
--- lazy nvim
 require ("user.options")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

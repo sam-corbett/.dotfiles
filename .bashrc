@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1="[\u / \W] §:"
+export PS1="[\u / \W] §: "
 
 # Commit Changes To GitHub Program
 # To use it, type cc2gh inside your repository clone 

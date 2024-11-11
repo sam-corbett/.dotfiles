@@ -140,7 +140,7 @@ cc2gh() {
     fi
 
     # Check if user's commit message contains spaces without the double quotes
-    if [[ $"#" -gt 1 ]]; then
+    if [ $"#" -gt 1 ]; then
       echo "Please enter commit message with double quotes,"
       echo "if your putting it next to cc2gh. Try again."
       return 1

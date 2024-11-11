@@ -122,13 +122,28 @@ export PS1="[\u / \W] §: "
 # To use it, type cc2gh inside your repository clone 
 # and then your commit message in double quotes
 # Ex. cc2gh "Commiting code to GH"
+# You are allowed to press enter which then shows
+# the commit messsage prompt, but you can only use
+# double quotes next to cc2gh.
 cc2gh() {
     local commit_message="$1" # Get commit message before starting
 
-    # Check if user left message empty handed
+    # Check if user pressed enter cc2gh instead of double quotes
+    # Then check if the commit message is null
     if [ -z "$commit_message" ]; then
-	  echo "Oops! You forgot to enter your commit message!"
-	  read -p "Please enter your commit message: " commit_message
+	  read -p "Enter your commit message: " commit_message
+
+      while [ -z "$commit_message" ]; do
+        echo "Commit message cannot be null (nothing)"
+        read -p "Enter your commit message: " commit_message
+      done
+    fi
+
+    # Check if user's commit message contains spaces without the double quotes
+    if [[ $"#" -gt 1 ]]; then
+      echo "Please enter commit message with double quotes,"
+      echo "if your putting it next to cc2gh. Try again."
+      return 1
     fi
 
     # add all changes
